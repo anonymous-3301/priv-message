@@ -1,0 +1,18 @@
+# this is the python/asm src code for the server that the app will be hosted on 
+# main functions defined in python and memory pointers in asm_
+
+def: (ZwCreate_new_user)
+asm_1
+
+int 0x80
+
+pop esp 
+cmp byte ptr [esp+20h], 0AE1982AEH           #virt address may be wrong check this
+
+
+pop ecx
+push ecx [ecx+50r], r16/32
+xor ecx, 0AE1982AEH
+
+if ZwCreate_new_user == true          #errors like 
+
