@@ -1,6 +1,12 @@
 # this is the python/asm src code for the server that the app will be hosted on 
 # main functions defined in python and memory pointers in asm_
 
+s.ntoh1(dword)   #iam using ntoh1 because my net is /32, change this func based on your net
+
+
+
+
+
 def: (ZwCreate_new_user)
 
 array.buffer_char(dword, 0AE1982AEH)       #address is not correct, this address will be the adress of the specific array in virtual memory
@@ -24,7 +30,23 @@ pop eax
 mov eax, eax
 
 test eax, eax
-or (esp+r/16/32) ,03+imm8   #logical inclusive OR if value is equal to 0 system will exit
-call dword ptr 
+or (eax+r/16/32) ,03+imm8   #logical inclusive OR if value is equal to 0 system will exit
+call dword ptr (eax+r/16/32) ,0AE1982AEH
+
+if retn == 0x000
+sys_exit
+import socket
+s=socket.socket
+AF_inet
+(void) c.send('unfortunatley there was an error validating your email address or password, please initiate a new connection and try agian')
+c.close (varC)
+#varC is the ip of the current connection
+
+
+#for piped false function define something that causes the stack to return a 0 quantity through the eax reg
+
+elif 
+
+
 
 
