@@ -2,17 +2,29 @@
 # main functions defined in python and memory pointers in asm_
 
 def: (ZwCreate_new_user)
+
+array.buffer_char(dword, 0AE1982AEH)       #address is not correct, this address will be the adress of the specific array in virtual memory
+
 asm_1
 
 int 0x80
 
 pop esp 
-cmp byte ptr [esp+20h], 0AE1982AEH           #virt address may be wrong check this
+cmp dword ptr [esp+20h], 0AE1982AEH           #virt address may be wrong check this
 
 
 pop ecx
 push ecx [ecx+50r], r16/32
 xor ecx, 0AE1982AEH
 
-if ZwCreate_new_user == true          #errors like 
+if ZwCreate_new_user == false        #errors like invalid email address etc
+asm_2
+
+pop eax
+mov eax, eax
+
+test eax, eax
+or (esp+r/16/32) ,03+imm8   #logical inclusive OR if value is equal to 0 system will exit
+call dword ptr 
+
 
