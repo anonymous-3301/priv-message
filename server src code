@@ -47,6 +47,10 @@ c.close (varC)
 
 elif 
 
+try:
+
+array.buffer_char (8Ch, 0x3634)      #stack has 8 layers consisting of 8 bits each
+
 
 
 
